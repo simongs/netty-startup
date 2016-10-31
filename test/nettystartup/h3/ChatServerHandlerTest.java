@@ -2,6 +2,7 @@ package nettystartup.h3;
 
 import io.netty.channel.embedded.EmbeddedChannel;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -63,6 +64,7 @@ public class ChatServerHandlerTest {
         assertThat("FROM에는 메시지 내용이 포함됩니다", m.text, equalTo("보내는 메시지"));
     }
 
+    @Ignore
     @Test
     public void NICK() throws Exception {
         m = writeAndRead(new ChatMessage("NICK", null, "새닉네임"));

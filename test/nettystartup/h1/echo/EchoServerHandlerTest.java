@@ -1,15 +1,16 @@
 package nettystartup.h1.echo;
 
+import static io.netty.util.ReferenceCountUtil.releaseLater;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.assertThat;
+
+import org.junit.Test;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.util.CharsetUtil;
-import nettystartup.h1.echo.EchoServerHandler;
-import org.junit.Test;
-
-import static io.netty.util.ReferenceCountUtil.releaseLater;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertThat;
 
 public class EchoServerHandlerTest {
     @Test

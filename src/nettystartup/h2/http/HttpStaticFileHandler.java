@@ -22,10 +22,12 @@ public class HttpStaticFileHandler extends SimpleChannelInboundHandler<FullHttpR
         // 이 Handler는 SimpleChannelInboundHandler<I>를 확장했지만 "auto-release: false"임에 주의합니다.
         // 상황에 따라 "필요시"에는 retain()을 부르도록 합니다.
 
+        if (!("/".equals(req.uri()))) {
+            ctx.fireChannelRead(req);
+            return;
+        }
 
-
-
-
+        sendStaticFile(ctx, req);
     }
 
     private void sendStaticFile(ChannelHandlerContext ctx, FullHttpRequest req) throws IOException {
